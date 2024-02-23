@@ -1,0 +1,22 @@
+post http://localhost:9200/login
+Content-Type: application/json
+
+{
+    "login_id": "may.doe@gmail.com",
+    "password": "d4ymKIzk"
+}
+###
+
+post http://localhost:9200/user/complete-profile
+Content-Type: application/json
+user: 65a36fb464c7ee81f5619ad2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDUyMTAyMTZ9.FzPulOQdpE6YB7UyYN1oNdzWXq9D_jXRyDCR9Fzjzi8
+
+{
+    "first_name": "Hannah",
+    "last_name": "Banana",
+    "email": "banana_juice@gmail.com",
+    "username": "juicy_hannah",
+    "password": "pword123",
+    "repassword": "pword123"
+}

@@ -1,0 +1,81 @@
+get http://localhost:9200
+###
+
+post http://localhost:9200/login
+Content-Type: application/json
+
+{
+    "username": "juicy_hannah",
+    "password": "pword123"
+}
+###
+
+post http://localhost:9200/signup
+Content-Type: application/json
+
+{
+    "first_name": "Hannah",
+    "last_name": "Banana",
+    "email": "banana_juice@gmail.com",
+    "username": "juicy_hannah",
+    "password": "pword123"
+}
+###
+
+get http://localhost:9200/dashboard
+user: juicy_hannah
+user-type: member
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imp1aWN5X2hhbm5haCIsImlhdCI6MTcwNDkyMzY1MH0.ZtHnN2008pqtSVOyNItl7pwH-RZ_jbw1jp6ZsYvOGEI
+###
+
+post http://localhost:9200/organization/register
+Content-Type: application/json
+
+{
+   "name": "organic matic inc.",
+   "email": "admin@organicmatic.inc",
+   "username": "kugmoz",
+   "password": "admin123"
+}
+###
+
+post http://localhost:9200/organization/login
+Content-Type: application/json
+
+{
+    "username": "kugmoz",
+    "password": "admin123"
+}
+###
+
+get http://localhost:9200/organization
+user: juicy_hannah
+user-type: admin
+id: 659f2b9173440291eff744ad
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDQ5MzAzNzh9.s2u10CTwOQFn41DEXCFS2TDYotqw1w1ryijS0r5srbE
+###
+
+# register team
+post http://localhost:9200/organization/team/register
+Content-Type: application/json
+user-type: admin
+id: 659f2b9173440291eff744ad
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDUxMDU2MDV9.A3FiZKLLv_YWuUjoc0A6hd-WCr3KHWO14HwyVYZkB04
+
+{
+    "name": ""
+}
+###
+
+post http://localhost:9200/organization/member/register
+Content-Type: application/json
+user-type: admin
+id: 659f2b9173440291eff744ad
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDUxMDU2MDV9.A3FiZKLLv_YWuUjoc0A6hd-WCr3KHWO14HwyVYZkB04
+
+{
+    "email": "",
+    "password": "",
+    "team": "",
+    "role": ""
+}

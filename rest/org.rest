@@ -1,0 +1,99 @@
+# org initial registration
+post http://localhost:9200/org/register
+Content-Type: application/json
+
+{
+   "company_name": "Two Joints Soceity",
+   "slug": "TJS"
+}
+###
+
+# org complete registration
+patch http://localhost:9200/org/TJS/save-credentials
+Content-Type: application/json
+Organization: RunNWalk Co.
+Organization-prefix: rnw_co
+User-type: admin
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1Yzg4YTYxNGU5NDZiMmMzNTVlZjcxMyIsImlhdCI6MTcwNzY0MTQ0MX0.5DOGvYq091DKP6Npm128jWjkqV1snTIwRXvv2HgTQFQ 
+
+{
+    "email": "TJS_john_doe@gmail.com",
+    "login_id": "TJS.kugmox_15",
+    "password": "pword123",
+    "confirm_password": "pword123"
+}
+###
+
+# verify account
+patch http://localhost:9200/org/abc/verify/123/456
+Content-Type: application/json
+
+{
+    "id": "123"
+}
+###
+
+post http://localhost:9200/org/admin/login
+Content-Type: application/json
+
+{
+    "login_id": "TJS.kugmox_15",
+    "password": "pword123"
+}
+###
+
+# get into organization profile
+get http://localhost:9200/org
+user-type: admin
+owner: 65acb074cdcf388be11adc46
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDU4MTYxODJ9.POf4vDwVRYvHH_FuE7xEIvbONU_I15LP62UoUDeF4RM
+###
+
+# register team
+post http://localhost:9200/org/omi/team/register/
+Content-Type: application/json
+user-type: admin
+owner: 65acb074cdcf388be11adc46
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWNiMDc0Y2RjZjM4OGJlMTFhZGM0NiIsImlhdCI6MTcwNzIxMDYxNH0.17zEiqEUgpGL76wCpYC6vhfXElwrH2ll95cXR9dBUeI
+
+{
+    "name": "kusgmozkie 33",
+    "slug": "kugmozkie_33"
+}
+###
+
+# register member to a team
+post http://localhost:9200/org/omi/my-team/members/add/
+Content-Type: application/json
+user-type: admin
+owner: 65acb074cdcf388be11adc46
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1YWNiMDc0Y2RjZjM4OGJlMTFhZGM0NiIsImlhdCI6MTcwNjE3MjcxMX0.BieT9_RxifbSvQaOCfceiPHje70AYRgn9ejXwHB78eE
+
+{
+    "email": "kusgmozkie 33"
+}
+###
+
+post http://localhost:9200/org/omi/members/add/
+Content-Type: application/json
+user-type: admin
+owner: 65acb074cdcf388be11adc46
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDU4MTYxODJ9.POf4vDwVRYvHH_FuE7xEIvbONU_I15LP62UoUDeF4RM
+
+{
+    "email": "ticket.jane@gmail.com"
+}
+###
+
+
+post http://localhost:9200/org/omi/presets/register/
+Content-Type: application/json
+user-type: admin
+id: 65a2959deb5b8ed7a5dacf72
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MDUxNTM5NTd9.rCp_cx8iZmmSg-dDTS9oeizWyzzi368tW-ZgyYXJXyE
+
+{
+    "ticket_types": [""],
+    "ticket_statuses": [""],
+    "ticket_item_statuses": [""]
+}
