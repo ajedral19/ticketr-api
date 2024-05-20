@@ -1,4 +1,3 @@
-// MONGODB=mongodb+srv://admin_bro:i3nrEw4hgy60g5uE@freecluster.jgid6pr.mongodb.net/ticketr
 import { config } from "dotenv";
 
 const env = config().parsed;
